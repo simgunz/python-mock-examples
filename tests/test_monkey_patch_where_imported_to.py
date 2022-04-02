@@ -23,3 +23,11 @@ def test_monkey_mock_correct(mock_banana):
     mock_banana.return_value = "mango"
 
     assert monkey.eat_banana() == "monkey eats mango"
+
+
+def test_monkey_mocker_correct(mocker):
+    """This tests shows the alternative syntax using the mocker fixture (pytest-mock)."""
+    mock_banana = mocker.patch("mockexamples.monkey.banana")
+    mock_banana.return_value = "mango"
+
+    assert monkey.eat_banana() == "monkey eats mango"
