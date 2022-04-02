@@ -1,0 +1,2 @@
+def banana():
+    return "banana"
