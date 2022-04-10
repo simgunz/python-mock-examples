@@ -1,5 +1,7 @@
-"""This tests demonstrate that patching where imported from can lead to weird
-behaviours even with local imports
+"""Patch a function where imported from with from...import... local to functions
+
+These tests demonstrate that patching where imported from can lead to weird
+behaviours even with local imports.
 """
 from unittest import mock
 
@@ -11,7 +13,7 @@ def test_monkey():
 
 
 @mock.patch("mockexamples.external_api_banana.banana")
-def test_monkey_mock_wrong(mock_banana):
+def test_mock_patch_where_imported_from_fails(mock_banana):
     """This test is sometimes green and sometimes red.
 
     __If I run this test alone__
