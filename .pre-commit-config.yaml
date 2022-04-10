@@ -32,11 +32,3 @@ repos:
         entry: poetry run isort --filter-files
         require_serial: true
         types_or: [python, pyi, cython]
-  - repo: local
-    hooks:
-      - id: mypy
-        name: mypy
-        language: system
-        entry: poetry run mypy --ignore-missing-imports --scripts-are-module
-        require_serial: true
-        types_or: [python, pyi]
