@@ -10,7 +10,7 @@ def test_monkey_eats_papaya():
 
 
 @mock.patch("mockexamples.external_api_papaya.papaya")
-def test_monkey_mock_wrong(mock_papaya):
+def test_mock_patch_where_looked_up_works(mock_papaya):
     """This test is green because I am patching where the object is looked up,
     which in this case is the module external_api_papaya."""
     mock_papaya.return_value = "mango"
@@ -19,7 +19,7 @@ def test_monkey_mock_wrong(mock_papaya):
 
 
 @mock.patch("mockexamples.monkey.papaya")
-def test_monkey_mock_wronga(mock_papaya):
+def test_mock_patch_unexisting_reference_fails(mock_papaya):
     """This test is red because in the scope of monkey no function papaya has been
     imported"""
     mock_papaya.return_value = "mango"
@@ -28,7 +28,7 @@ def test_monkey_mock_wronga(mock_papaya):
 
 
 @mock.patch("mockexamples.monkey.external_api_papaya.papaya")
-def test_monkey_mock_correct(mock_papaya):
+def test_mock_patch_function_of_module_where_imported_to_works(mock_papaya):
     """This test is green because I am patching the function of the reference of the module
     imported by monkey."""
     mock_papaya.return_value = "mango"
