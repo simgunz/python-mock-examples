@@ -14,8 +14,10 @@ def test_monkey_mock_wrong(mock_banana):
     """This test is red because I am patching where the object is imported from.
 
     At the time of patching, monkey has already been imported in the test module.
-    This means that the monkey module has been loaded and it has imported the non-patched
-    version of banana. To patch it I now need to patch it in the scope of monkey."""
+    This means that the monkey module has been loaded and it has imported the
+    non-patched version of banana. To patch it I now need to patch it in the scope
+    of monkey.
+    """
     mock_banana.return_value = "mango"
 
     assert monkey.eat_banana() == "monkey eats mango"
