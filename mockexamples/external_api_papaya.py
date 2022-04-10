@@ -1,0 +1,2 @@
+def papaya():
+    return "papaya"
