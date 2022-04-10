@@ -8,7 +8,3 @@ def eat_banana():
 
 def eat_papaya():
     return f"monkey eats {external_api_papaya.papaya()}"
-
-
-if __name__ == "__main__":
-    eat_banana()
