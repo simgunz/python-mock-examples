@@ -2,7 +2,7 @@
 """
 from unittest import mock
 
-from mockexamples import monkey
+from mockexamples import baboon, monkey
 
 
 def test_monkey():
@@ -24,11 +24,16 @@ def test_mock_patch_where_imported_from_fails(mock_banana):
 
 
 @mock.patch("mockexamples.monkey.banana")
-def test_mock_patch_where_imported_to_works(mock_banana):
-    """This test is green because I am patching where the object is imported to."""
+def test_mock_patch_where_imported_to_works_and_does_not_affect_other_imports(
+    mock_banana,
+):
+    """This test is green because I am patching where the object is imported to.
+
+    The imports of banana in other modules are not affected by the mock."""
     mock_banana.return_value = "mango"
 
     assert monkey.eat_banana() == "monkey eats mango"
+    assert baboon.eat_banana() == "baboon eats banana"
 
 
 def test_mocker_patch_where_imported_to_works(mocker):
